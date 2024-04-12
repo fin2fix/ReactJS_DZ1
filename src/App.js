@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CurrentTime from "./CurrentTime";
+import "./CurrentTime.css";
+import EvenCard from "./EvenCard";
+import Greetings from "./Greetings";
+import Message from "./Message";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          <Message text="Заканчивай с уроками - пойдем гулять с ребенком" />
+        </div>
+        <h4>Новый текст</h4>
+        <p>Какой-то абзац</p>
+        <Greetings />
+        <CurrentTime />
+        <div>
+          <EvenCard
+            title="Scorpions"
+            date="13.04.2024 в 19.00"
+            location="Москва, Лужники"
+            flag="true"
+          />
+
+          <EvenCard
+            title="Парк Горького"
+            date="14.04.2024 в 20.00"
+            location="Москва, Кремль"
+          />
+        </div>
       </header>
     </div>
   );
 }
-
 export default App;
