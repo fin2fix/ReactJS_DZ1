@@ -1,14 +1,24 @@
 import "./App.css";
-import CurrentTime from "./CurrentTime";
-import "./CurrentTime.css";
-import EvenCard from "./EvenCard";
-import Greetings from "./Greetings";
-import Message from "./Message";
+
+//import CurrentTime from "./components/Seminar1/CurrentTime";
+//import "./components/Seminar1/CurrentTime.css";
+//import EvenCard from "./components/Seminar1/EvenCard";
+//import Greetings from "./components/Seminar1/Greetings";
+//import Message from "./components/DZ1/Message";
+
+import Counter from "./components/Seminar2/counter";
+import TextInput from "./components/Seminar2/TextInput";
+import TaskInput from "./components/Seminar2/TaskInput";
+import TimerScreen from "./components/Seminar2/TimerScreen";
+
+// usf - useState
+// ffc - function component
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/*
+       <header className="App-header">
         <div>
           <Message text="Заканчивай с уроками - пойдем гулять с ребенком" />
         </div>
@@ -30,7 +40,12 @@ function App() {
             location="Москва, Кремль"
           />
         </div>
-      </header>
+      </header> 
+      */}
+      <Counter />
+      <TextInput />
+      <TaskInput/>
+      <TimerScreen/>
     </div>
   );
 }
