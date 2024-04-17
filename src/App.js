@@ -1,15 +1,15 @@
 import "./App.css";
+import CommentsList from "./components/DZ2/CommentsList";
 
 //import CurrentTime from "./components/Seminar1/CurrentTime";
 //import "./components/Seminar1/CurrentTime.css";
 //import EvenCard from "./components/Seminar1/EvenCard";
 //import Greetings from "./components/Seminar1/Greetings";
 //import Message from "./components/DZ1/Message";
-
-import Counter from "./components/Seminar2/counter";
-import TextInput from "./components/Seminar2/TextInput";
-import TaskInput from "./components/Seminar2/TaskInput";
-import TimerScreen from "./components/Seminar2/TimerScreen";
+//import Counter from "./components/Seminar2/counter";
+//import TextInput from "./components/Seminar2/TextInput";
+//import TaskInput from "./components/Seminar2/TaskInput";
+//import TimerScreen from "./components/Seminar2/TimerScreen";
 
 // usf - useState
 // ffc - function component
@@ -41,11 +41,12 @@ function App() {
           />
         </div>
       </header> 
-      */}
+      
       <Counter />
       <TextInput />
       <TaskInput/>
-      <TimerScreen/>
+      <TimerScreen/> */}
+      <CommentsList/>
     </div>
   );
 }
