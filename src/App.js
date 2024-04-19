@@ -1,6 +1,10 @@
 import "./App.css";
-import CommentsList from "./components/DZ2/CommentsList";
-
+//import CounterSem3 from "./components/Seminar3/CounterSem3";
+//import CommentsList from "./components/DZ2/CommentsList";
+//import GreetingsSem3 from "./components/Seminar3/GreetingsSem3";
+//import InputText from "./components/Seminar3/InputText";
+//import MessagesList from "./components/Seminar3/MessagesList";
+//import ThemeSwitcher from "./components/Seminar3/ThemeSwitcher";
 //import CurrentTime from "./components/Seminar1/CurrentTime";
 //import "./components/Seminar1/CurrentTime.css";
 //import EvenCard from "./components/Seminar1/EvenCard";
@@ -45,8 +49,14 @@ function App() {
       <Counter />
       <TextInput />
       <TaskInput/>
-      <TimerScreen/> */}
+      <TimerScreen/> 
       <CommentsList/>
+      <GreetingsSem3 userName="Ivan" />
+      <GreetingsSem3 userName="Petr" />
+      <CounterSem3 />
+      <MessagesList />
+      <ThemeSwitcher />
+      <InputText />*/}
     </div>
   );
 }
