@@ -13,9 +13,9 @@ function CommentsList() {
     { id: 3, text: "Это третий комментарий" },
   ]);
 
-  function clickHandler() {
-    setComments(comments.splice(comments.indexOf()));
-  }
+  const clickHandler = (event) => {
+    setComments(comments.splice(comments.indexOf(event), 1));
+  };
 
   return (
     <>

@@ -1,4 +1,6 @@
 import "./App.css";
+import TemperatureConverter from "./components/DZ3/TemperatureConverter";
+import TodoList from "./components/DZ3/TodoList";
 //import CounterSem3 from "./components/Seminar3/CounterSem3";
 //import CommentsList from "./components/DZ2/CommentsList";
 //import GreetingsSem3 from "./components/Seminar3/GreetingsSem3";
@@ -57,6 +59,8 @@ function App() {
       <MessagesList />
       <ThemeSwitcher />
       <InputText />*/}
+      <TemperatureConverter/>
+      <TodoList/>
     </div>
   );
 }
