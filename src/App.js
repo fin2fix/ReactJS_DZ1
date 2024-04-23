@@ -1,6 +1,12 @@
+import { useState } from "react";
 import "./App.css";
-import TemperatureConverter from "./components/DZ3/TemperatureConverter";
-import TodoList from "./components/DZ3/TodoList";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import NotFound from "./components/DZ4/NotFound";
+import ListPage from "./components/DZ4/ListPage";
+import PageDetails from "./components/DZ4/PageDetails";
+
+//import TemperatureConverter from "./components/DZ3/TemperatureConverter";
+//import TodoList from "./components/DZ3/TodoList";
 //import CounterSem3 from "./components/Seminar3/CounterSem3";
 //import CommentsList from "./components/DZ2/CommentsList";
 //import GreetingsSem3 from "./components/Seminar3/GreetingsSem3";
@@ -16,11 +22,25 @@ import TodoList from "./components/DZ3/TodoList";
 //import TextInput from "./components/Seminar2/TextInput";
 //import TaskInput from "./components/Seminar2/TaskInput";
 //import TimerScreen from "./components/Seminar2/TimerScreen";
+//import Box from "./components/Seminar4/Box";
 
 // usf - useState
 // ffc - function component
 
 function App() {
+  const [pages, setPages] = useState([
+    { name: "Articles", text: "Статьи о нашей компании" },
+    { name: "Catalog", text: "Каталог товаров" },
+    { name: "About", text: "Информация о нас" },
+    { name: "Contacts", text: "Наши контакты" },
+  ]);
+
+  const router = createBrowserRouter([
+    { path: "/", element: <ListPage pages={pages} /> },
+    { path: "/detail/:pageId", element: <PageDetails pages={pages} /> },
+    { path: "*", element: <NotFound/> },
+  ]);
+
   return (
     <div className="App">
       {/*
@@ -58,9 +78,28 @@ function App() {
       <CounterSem3 />
       <MessagesList />
       <ThemeSwitcher />
-      <InputText />*/}
+      <InputText />
       <TemperatureConverter/>
       <TodoList/>
+
+      <Box>
+        <p> First item</p>
+      </Box>
+      <Box>
+        <p> Second item</p>
+      </Box>
+      <Box>
+        <p> Third item</p>
+      </Box> 
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ListPage />} />
+          <Route path="/details/:id" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter> */}
+
+      <RouterProvider router={router} />
     </div>
   );
 }
