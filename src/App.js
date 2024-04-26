@@ -1,9 +1,12 @@
-import { useState } from "react";
+//import { useState } from "react";
 import "./App.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import NotFound from "./components/DZ4/NotFound";
-import ListPage from "./components/DZ4/ListPage";
-import PageDetails from "./components/DZ4/PageDetails";
+//import Counter from "./components/Seminar5/Counter";
+import Counter from "./components/DZ5/Counter";
+//import Loading from "./components/Seminar5/Loading";
+//import { RouterProvider, createBrowserRouter } from "react-router-dom";
+//import NotFound from "./components/DZ4/NotFound";
+//import ListPage from "./components/DZ4/ListPage";
+//import PageDetails from "./components/DZ4/PageDetails";
 
 //import TemperatureConverter from "./components/DZ3/TemperatureConverter";
 //import TodoList from "./components/DZ3/TodoList";
@@ -27,23 +30,102 @@ import PageDetails from "./components/DZ4/PageDetails";
 // usf - useState
 // ffc - function component
 
-function App() {
-  const [pages, setPages] = useState([
-    { name: "Articles", text: "Статьи о нашей компании" },
-    { name: "Catalog", text: "Каталог товаров" },
-    { name: "About", text: "Информация о нас" },
-    { name: "Contacts", text: "Наши контакты" },
-  ]);
+import { useContext, createContext, useState } from "react";
+import ContentSite from "./components/DZ5/ContentSite";
+//import Header from "./components/Seminar5/Header";
+//import Profile from "./components/Seminar5/Profile";
+//import Footer from "./components/Seminar5/Footer";
 
-  const router = createBrowserRouter([
-    { path: "/", element: <ListPage pages={pages} /> },
-    { path: "/detail/:pageId", element: <PageDetails pages={pages} /> },
-    { path: "*", element: <NotFound/> },
-  ]);
+export const UserContext = createContext("Guest");
+export const ThemeContext = createContext("light");
+
+{
+  /* Семинар 5-2 */
+}
+// const withLoadingIndicator = (Component, isLoading) => {
+//   return (props) => {
+//     const newProps = {...props, isLoading};
+//     return <Component {... newProps}/>
+//   };
+// };
+
+function App() {
+  {
+    /* Семинар 5-1 */
+  }
+  // const [theme, setTheme] = useState("light");
+  // const [UserName, setUserName] = useState("Guest");
+
+  // function changeUserName(e) {
+  //   let newUserName = e.target.closest("div").querySelector("input").value;
+  //   setUserName(newUserName);
+  //   newUserName = "";
+  // }
+
+  // function toggleTheme() {
+  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  // }
+
+  {
+    /* Семинар 5-2 */
+  }
+  // const [isLoading, setisLoading] = useState(true);
+  // const NewLoading = withLoadingIndicator(Loading, isLoading);
+
+  // setTimeout(()=>{
+  //   setisLoading((prev)=> !prev);
+  // }, 3000);
+  
+  const userName = useContext(UserContext);
+  const [theme, setTheme] = useState("light");
+
+  function toggleTheme() {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  }
+
+  // const [pages, setPages] = useState([
+  //   { name: "Articles", text: "Статьи о нашей компании" },
+  //   { name: "Catalog", text: "Каталог товаров" },
+  //   { name: "About", text: "Информация о нас" },
+  //   { name: "Contacts", text: "Наши контакты" },
+  // ]);
+
+  // const router = createBrowserRouter([
+  //   { path: "/", element: <ListPage pages={pages} /> },
+  //   { path: "/detail/:pageId", element: <PageDetails pages={pages} /> },
+  //   { path: "*", element: <NotFound/> },
+  // ]);
 
   return (
     <div className="App">
+      {/* <Counter/> */}
+      {/* Семинар 5-2 */}
+      {/* <NewLoading/> */}
+
+      {/* <ThemeContext.Provider value={theme}>
+        <UserContext.Provider value={userName}>
+          <Header />
+          <Profile />
+          <Footer />
+          <div>
+            <button onClick={toggleTheme}>Change theme</button>
+          </div>
+        </UserContext.Provider>
+      </ThemeContext.Provider> */}
+
+
+      <ThemeContext.Provider value={theme}>
+        <UserContext.Provider value={userName}>
+          <ContentSite />
+              <div>
+            <button onClick={toggleTheme}>Change theme</button>
+          </div>
+        </UserContext.Provider>
+      </ThemeContext.Provider>
+
+
       {/*
+      
        <header className="App-header">
         <div>
           <Message text="Заканчивай с уроками - пойдем гулять с ребенком" />
@@ -82,6 +164,7 @@ function App() {
       <TemperatureConverter/>
       <TodoList/>
 
+
       <Box>
         <p> First item</p>
       </Box>
@@ -92,14 +175,17 @@ function App() {
         <p> Third item</p>
       </Box> 
 
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ListPage />} />
           <Route path="/details/:id" element={<DetailPage />} />
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter> 
+
 
       <RouterProvider router={router} />
+    </div>*/}
     </div>
   );
 }
