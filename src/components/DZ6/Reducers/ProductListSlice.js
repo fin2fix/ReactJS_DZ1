@@ -7,23 +7,23 @@ export const ProductListSlice = createSlice({
       {
         id: 1,
         name: "Product 1",
-        description: "This is the Product 1",
+        description: "This is the first product",
         price: 1000,
-        available: true,
+        available: 1,
       },
       {
         id: 2,
         name: "Product 2",
-        description: "This is the Product 2",
+        description: "This is the second product",
         price: 2000,
-        available: false,
+        available: 0,
       },
       {
         id: 3,
         name: "Product 3",
-        description: "This is the Product 3",
+        description: "This is the third product",
         price: 3000,
-        available: true,
+        available: 1,
       },
     ],
   },
@@ -40,9 +40,13 @@ export const ProductListSlice = createSlice({
       );
       state.array = filteredArray;
     },
+    changeAvialablity: (state, { payload: ProductItem }) => {
+      state.array.map((item) => (item.available = !ProductItem.available));
+    },
   },
 });
 
-export const { addProduct, deleteProduct } =  ProductListSlice.actions;
+export const { addProduct, deleteProduct, changeAvialablity } =
+  ProductListSlice.actions;
 
 export default ProductListSlice.reducer;

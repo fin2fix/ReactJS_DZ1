@@ -6,7 +6,19 @@ export default function AddProduct({ products }) {
   const dispatch = useDispatch();
   const [product, setProduct] = useState("");
 
-  function inputHandler(e) {
+  function inputHandlerName(e) {
+    setProduct(e.target.value);
+  }
+
+  function inputHandlerDescription(e) {
+    setProduct(e.target.value);
+  }
+
+  function inputHandlerPrice(e) {
+    setProduct(e.target.value);
+  }
+
+  function inputHandlerAvialable(e) {
     setProduct(e.target.value);
   }
 
@@ -31,27 +43,27 @@ export default function AddProduct({ products }) {
         type="text"
         placeholder="name"
         value={product.name}
-        onChange={(e) => inputHandler(e)}
+        onChange={(e) => inputHandlerName(e)}
       />
       <input
         id="product"
         type="text"
         placeholder="description"
         value={product.description}
-        onChange={(e) => inputHandler(e)}
+        onChange={(e) => inputHandlerDescription(e)}
       />
       <input
         id="product"
         type="number"
         placeholder="price"
         value={product.price}
-        onChange={(e) => inputHandler(e)}
+        onChange={(e) => inputHandlerPrice(e)}
       />
       <input
         id="product"
         type="checkbox"
         value={product.available}
-        onChange={(e) => inputHandler(e)}
+        onChange={(e) => inputHandlerAvialable(e)}
       />
       <button onClick={(e) => addNewProduct(e)}>Add new product</button>
     </div>

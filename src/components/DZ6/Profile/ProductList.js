@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct } from "../Reducers/ProductListSlice";
+import { changeAvialablity, deleteProduct } from "../Reducers/ProductListSlice";
 import AddProduct from "./AddProduct";
 import React from "react";
 
@@ -22,7 +22,7 @@ export default function ProductList() {
           <p>name: {product.name}</p>
           <p>description: {product.description}</p>
           <p>price: {product.price}</p>
-          <p>available: {product.available}</p>
+          <p>available: {product.available === 0 ? "no" : "yes"}</p>
 
           <button
             onClick={() => {
@@ -30,6 +30,14 @@ export default function ProductList() {
             }}
           >
             Delete
+          </button>
+
+          <button
+            onClick={() => {
+              return dispatch(changeAvialablity(product));
+            }}
+          >
+            Change avialablity
           </button>
         </div>
       ))}
