@@ -1,13 +1,17 @@
-//import { useState } from "react";
 import "./App.css";
+import ProductList from "./components/DZ6/Profile/ProductList";
+import { store } from "./components/DZ6/Store/store";
+import { Provider } from "react-redux";
+import React from "react";
+//import { useState } from "react";
+//import TodoList from "./components/Seminar6/Profile/TodoList";
 //import Counter from "./components/Seminar5/Counter";
-import Counter from "./components/DZ5/Counter";
+//import Counter from "./components/DZ5/Counter";
 //import Loading from "./components/Seminar5/Loading";
 //import { RouterProvider, createBrowserRouter } from "react-router-dom";
 //import NotFound from "./components/DZ4/NotFound";
 //import ListPage from "./components/DZ4/ListPage";
 //import PageDetails from "./components/DZ4/PageDetails";
-
 //import TemperatureConverter from "./components/DZ3/TemperatureConverter";
 //import TodoList from "./components/DZ3/TodoList";
 //import CounterSem3 from "./components/Seminar3/CounterSem3";
@@ -30,14 +34,13 @@ import Counter from "./components/DZ5/Counter";
 // usf - useState
 // ffc - function component
 
-import { useContext, createContext, useState } from "react";
-import ContentSite from "./components/DZ5/ContentSite";
+//import { useContext, createContext, useState } from "react";
+//import ContentSite from "./components/DZ5/ContentSite";
 //import Header from "./components/Seminar5/Header";
 //import Profile from "./components/Seminar5/Profile";
 //import Footer from "./components/Seminar5/Footer";
-
-export const UserContext = createContext("Guest");
-export const ThemeContext = createContext("light");
+//export const UserContext = createContext("Guest");
+//export const ThemeContext = createContext("light");
 
 {
   /* Семинар 5-2 */
@@ -75,13 +78,13 @@ function App() {
   // setTimeout(()=>{
   //   setisLoading((prev)=> !prev);
   // }, 3000);
-  
-  const userName = useContext(UserContext);
-  const [theme, setTheme] = useState("light");
 
-  function toggleTheme() {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  }
+  // const userName = useContext(UserContext);
+  // const [theme, setTheme] = useState("light");
+
+  // function toggleTheme() {
+  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  // }
 
   // const [pages, setPages] = useState([
   //   { name: "Articles", text: "Статьи о нашей компании" },
@@ -98,6 +101,11 @@ function App() {
 
   return (
     <div className="App">
+      <Provider store={store}>
+        <ProductList />
+      </Provider>
+
+      {/* <TodoList/> */}
       {/* <Counter/> */}
       {/* Семинар 5-2 */}
       {/* <NewLoading/> */}
@@ -113,7 +121,7 @@ function App() {
         </UserContext.Provider>
       </ThemeContext.Provider> */}
 
-
+      {/* 
       <ThemeContext.Provider value={theme}>
         <UserContext.Provider value={userName}>
           <ContentSite />
@@ -121,8 +129,7 @@ function App() {
             <button onClick={toggleTheme}>Change theme</button>
           </div>
         </UserContext.Provider>
-      </ThemeContext.Provider>
-
+      </ThemeContext.Provider> */}
 
       {/*
       
