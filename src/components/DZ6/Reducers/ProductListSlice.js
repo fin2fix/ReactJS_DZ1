@@ -6,47 +6,55 @@ export const ProductListSlice = createSlice({
     array: [
       {
         id: 1,
-        name: "Product 1",
-        description: "This is the first product",
-        price: 1000,
-        available: 1,
+        name: "Prod #1",
+        description: "Description prod #1",
+        price: 41,
+        available: "yes",
       },
       {
         id: 2,
-        name: "Product 2",
-        description: "This is the second product",
-        price: 2000,
-        available: 0,
+        name: "Prod #2",
+        description: "Description prod #2",
+        price: 57,
+        available: "yes",
       },
       {
         id: 3,
-        name: "Product 3",
-        description: "This is the third product",
-        price: 3000,
-        available: 1,
+        name: "Prod #3",
+        description: "Description prod #3",
+        price: 123,
+        available: "no",
       },
     ],
   },
   reducers: {
-    addProduct: (state, { payload: newProductItem }) => {
-      if (state.array.some((item) => item.id === newProductItem.id)) {
+    addProduct: (state, { payload: newProduct }) => {
+      if (state.array.some((product) => product.id === newProduct.id)) {
         return;
       }
-      state.array.push(newProductItem);
+      state.array.push({ ...newProduct, id: state.array.length + 1 });
     },
-    deleteProduct: (state, { payload: productItem }) => {
-      const filteredArray = state.array.filter(
-        (item) => item.id !== productItem.id
+    deleteProduct: (state, { payload: deletedProduct }) => {
+      state.array = state.array.filter(
+        (product) => product.id !== deletedProduct.id
       );
-      state.array = filteredArray;
     },
-    changeAvialablity: (state, { payload: ProductItem }) => {
-      state.array.map((item) => (item.available = !ProductItem.available));
+    changeAvailable: (state, { payload: editedProduct }) => {
+      state.array.forEach((product) => {
+        if (product.id === editedProduct.id) {
+          product.available === "yes"
+            ? (product.available = "no")
+            : (product.available = "yes");
+        }
+      });
+    },
+    updateProduct: (state, { payload: updatedProduct }) => {
+      state.array = state.array.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      );
     },
   },
 });
 
-export const { addProduct, deleteProduct, changeAvialablity } =
-  ProductListSlice.actions;
-
+export const { addProduct, deleteProduct, changeAvailable, updateProduct } = ProductListSlice.actions;
 export default ProductListSlice.reducer;

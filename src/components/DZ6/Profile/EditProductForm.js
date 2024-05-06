@@ -1,9 +1,11 @@
-import { useDispatch } from "react-redux";
-import { addProduct } from "../Reducers/ProductListSlice";
-import { React, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProduct } from "../Reducers/ProductListSlice";
+import { useState } from "react";
 
-export default function AddProduct() {
+export default function EditProductForm() {
+  const products = useSelector((state) => state.products.array);
   const dispatch = useDispatch();
+
   const [product, setProduct] = useState({
     id: "",
     name: "",
@@ -15,13 +17,20 @@ export default function AddProduct() {
   function clickHandler(e) {
     const inputs = e.target.closest("section").querySelectorAll("input");
     [...inputs].forEach((input) => (input.value = ""));
-    dispatch(addProduct(product));
+    dispatch(updateProduct(product));
   }
 
   function availableCheck(e) {
     e.target.value.trim() === "yes" || e.target.value.trim() === "no"
       ? setProduct({ ...product, available: e.target.value })
       : setProduct({ ...product, available: "no" });
+  }
+
+  function checkId(e) {
+    if (!products.some((product) => product.id === Number(e.target.value))) {
+      return;
+    }
+    setProduct({ ...product, id: Number(e.target.value) });
   }
 
   return (
@@ -33,7 +42,9 @@ export default function AddProduct() {
         gap: "10px",
       }}
     >
-      <h3>Add new product</h3>
+      <h3>Edit Product</h3>
+      <label htmlFor="name">ID </label>
+      <input id="name" type="text" onChange={(e) => checkId(e)} />
       <label htmlFor="name">Name </label>
       <input
         id="name"
@@ -58,7 +69,7 @@ export default function AddProduct() {
       />
       <label htmlFor="available">Available </label>
       <input id="available" type="text" onChange={(e) => availableCheck(e)} />
-      <button onClick={(e) => clickHandler(e)}>Add new product</button>
+      <button onClick={(e) => clickHandler(e)}>Edit product</button>
     </div>
   );
 }

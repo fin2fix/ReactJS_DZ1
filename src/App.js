@@ -1,8 +1,12 @@
-import "./App.css";
 import ProductList from "./components/DZ6/Profile/ProductList";
 import { store } from "./components/DZ6/Store/store";
 import { Provider } from "react-redux";
 import React from "react";
+import "./App.css";
+import AddProduct from "./components/DZ6/Profile/AddProduct";
+import EditProductForm from "./components/DZ6/Profile/EditProductForm";
+
+
 //import { useState } from "react";
 //import TodoList from "./components/Seminar6/Profile/TodoList";
 //import Counter from "./components/Seminar5/Counter";
@@ -52,148 +56,172 @@ import React from "react";
 //   };
 // };
 
-function App() {
-  {
-    /* Семинар 5-1 */
-  }
-  // const [theme, setTheme] = useState("light");
-  // const [UserName, setUserName] = useState("Guest");
+// function App() {
+//   {
+//     /* Семинар 5-1 */
+//   }
+//   // const [theme, setTheme] = useState("light");
+//   // const [UserName, setUserName] = useState("Guest");
 
-  // function changeUserName(e) {
-  //   let newUserName = e.target.closest("div").querySelector("input").value;
-  //   setUserName(newUserName);
-  //   newUserName = "";
-  // }
+//   // function changeUserName(e) {
+//   //   let newUserName = e.target.closest("div").querySelector("input").value;
+//   //   setUserName(newUserName);
+//   //   newUserName = "";
+//   // }
 
-  // function toggleTheme() {
-  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  // }
+//   // function toggleTheme() {
+//   //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+//   // }
 
-  {
-    /* Семинар 5-2 */
-  }
-  // const [isLoading, setisLoading] = useState(true);
-  // const NewLoading = withLoadingIndicator(Loading, isLoading);
+//   {
+//     /* Семинар 5-2 */
+//   }
+//   // const [isLoading, setisLoading] = useState(true);
+//   // const NewLoading = withLoadingIndicator(Loading, isLoading);
 
-  // setTimeout(()=>{
-  //   setisLoading((prev)=> !prev);
-  // }, 3000);
+//   // setTimeout(()=>{
+//   //   setisLoading((prev)=> !prev);
+//   // }, 3000);
 
-  // const userName = useContext(UserContext);
-  // const [theme, setTheme] = useState("light");
+//   // const userName = useContext(UserContext);
+//   // const [theme, setTheme] = useState("light");
 
-  // function toggleTheme() {
-  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  // }
+//   // function toggleTheme() {
+//   //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+//   // }
 
-  // const [pages, setPages] = useState([
-  //   { name: "Articles", text: "Статьи о нашей компании" },
-  //   { name: "Catalog", text: "Каталог товаров" },
-  //   { name: "About", text: "Информация о нас" },
-  //   { name: "Contacts", text: "Наши контакты" },
-  // ]);
+//   // const [pages, setPages] = useState([
+//   //   { name: "Articles", text: "Статьи о нашей компании" },
+//   //   { name: "Catalog", text: "Каталог товаров" },
+//   //   { name: "About", text: "Информация о нас" },
+//   //   { name: "Contacts", text: "Наши контакты" },
+//   // ]);
 
-  // const router = createBrowserRouter([
-  //   { path: "/", element: <ListPage pages={pages} /> },
-  //   { path: "/detail/:pageId", element: <PageDetails pages={pages} /> },
-  //   { path: "*", element: <NotFound/> },
-  // ]);
+//   // const router = createBrowserRouter([
+//   //   { path: "/", element: <ListPage pages={pages} /> },
+//   //   { path: "/detail/:pageId", element: <PageDetails pages={pages} /> },
+//   //   { path: "*", element: <NotFound/> },
+//   // ]);
 
+//   return (
+//     <div className="App">
+//       <Provider store={store}>
+//         <ProductList />
+//       </Provider>
+
+//       {/* <TodoList/> */}
+//       {/* <Counter/> */}
+//       {/* Семинар 5-2 */}
+//       {/* <NewLoading/> */}
+
+//       {/* <ThemeContext.Provider value={theme}>
+//         <UserContext.Provider value={userName}>
+//           <Header />
+//           <Profile />
+//           <Footer />
+//           <div>
+//             <button onClick={toggleTheme}>Change theme</button>
+//           </div>
+//         </UserContext.Provider>
+//       </ThemeContext.Provider> */}
+
+//       {/* 
+//       <ThemeContext.Provider value={theme}>
+//         <UserContext.Provider value={userName}>
+//           <ContentSite />
+//               <div>
+//             <button onClick={toggleTheme}>Change theme</button>
+//           </div>
+//         </UserContext.Provider>
+//       </ThemeContext.Provider> */}
+
+//       {/*
+      
+//        <header className="App-header">
+//         <div>
+//           <Message text="Заканчивай с уроками - пойдем гулять с ребенком" />
+//         </div>
+//         <h4>Новый текст</h4>
+//         <p>Какой-то абзац</p>
+//         <Greetings />
+//         <CurrentTime />
+//         <div>
+//           <EvenCard
+//             title="Scorpions"
+//             date="13.04.2024 в 19.00"
+//             location="Москва, Лужники"
+//             flag="true"
+//           />
+
+//           <EvenCard
+//             title="Парк Горького"
+//             date="14.04.2024 в 20.00"
+//             location="Москва, Кремль"
+//           />
+//         </div>
+//       </header> 
+      
+//       <Counter />
+//       <TextInput />
+//       <TaskInput/>
+//       <TimerScreen/> 
+//       <CommentsList/>
+//       <GreetingsSem3 userName="Ivan" />
+//       <GreetingsSem3 userName="Petr" />
+//       <CounterSem3 />
+//       <MessagesList />
+//       <ThemeSwitcher />
+//       <InputText />
+//       <TemperatureConverter/>
+//       <TodoList/>
+
+
+//       <Box>
+//         <p> First item</p>
+//       </Box>
+//       <Box>
+//         <p> Second item</p>
+//       </Box>
+//       <Box>
+//         <p> Third item</p>
+//       </Box> 
+
+
+//       <BrowserRouter>
+//         <Routes>
+//           <Route path="/" element={<ListPage />} />
+//           <Route path="/details/:id" element={<DetailPage />} />
+//         </Routes>
+//       </BrowserRouter> 
+
+
+//       <RouterProvider router={router} />
+//     </div>*/}
+//     </div>
+//   );
+// }
+// export default App;
+
+
+
+export default function App() {
   return (
-    <div className="App">
+    <section style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
       <Provider store={store}>
-        <ProductList />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "200px",
+          marginBottom: "20px",
+        }}
+      >
+        <AddProduct />
+        {/* <EditProductForm /> */}
+      </div>
+      
+      <ProductList />
       </Provider>
-
-      {/* <TodoList/> */}
-      {/* <Counter/> */}
-      {/* Семинар 5-2 */}
-      {/* <NewLoading/> */}
-
-      {/* <ThemeContext.Provider value={theme}>
-        <UserContext.Provider value={userName}>
-          <Header />
-          <Profile />
-          <Footer />
-          <div>
-            <button onClick={toggleTheme}>Change theme</button>
-          </div>
-        </UserContext.Provider>
-      </ThemeContext.Provider> */}
-
-      {/* 
-      <ThemeContext.Provider value={theme}>
-        <UserContext.Provider value={userName}>
-          <ContentSite />
-              <div>
-            <button onClick={toggleTheme}>Change theme</button>
-          </div>
-        </UserContext.Provider>
-      </ThemeContext.Provider> */}
-
-      {/*
-      
-       <header className="App-header">
-        <div>
-          <Message text="Заканчивай с уроками - пойдем гулять с ребенком" />
-        </div>
-        <h4>Новый текст</h4>
-        <p>Какой-то абзац</p>
-        <Greetings />
-        <CurrentTime />
-        <div>
-          <EvenCard
-            title="Scorpions"
-            date="13.04.2024 в 19.00"
-            location="Москва, Лужники"
-            flag="true"
-          />
-
-          <EvenCard
-            title="Парк Горького"
-            date="14.04.2024 в 20.00"
-            location="Москва, Кремль"
-          />
-        </div>
-      </header> 
-      
-      <Counter />
-      <TextInput />
-      <TaskInput/>
-      <TimerScreen/> 
-      <CommentsList/>
-      <GreetingsSem3 userName="Ivan" />
-      <GreetingsSem3 userName="Petr" />
-      <CounterSem3 />
-      <MessagesList />
-      <ThemeSwitcher />
-      <InputText />
-      <TemperatureConverter/>
-      <TodoList/>
-
-
-      <Box>
-        <p> First item</p>
-      </Box>
-      <Box>
-        <p> Second item</p>
-      </Box>
-      <Box>
-        <p> Third item</p>
-      </Box> 
-
-
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<ListPage />} />
-          <Route path="/details/:id" element={<DetailPage />} />
-        </Routes>
-      </BrowserRouter> 
-
-
-      <RouterProvider router={router} />
-    </div>*/}
-    </div>
+    </section>
   );
 }
-export default App;

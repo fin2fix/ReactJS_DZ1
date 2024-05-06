@@ -1,46 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
-import { changeAvialablity, deleteProduct } from "../Reducers/ProductListSlice";
-import AddProduct from "./AddProduct";
+import { changeAvailable, deleteProduct } from "../Reducers/ProductListSlice";
 import React from "react";
 
 export default function ProductList() {
   const products = useSelector((state) => state.productList.array);
   const dispatch = useDispatch();
   return (
-    <section
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "20px",
-      }}
-    >
-      <AddProduct products={products} />
+    <>
       {products.map((product) => (
         <div key={product.id} style={{ display: "flex", gap: "20px" }}>
-          <p>id: {product.id}</p>
-          <p>name: {product.name}</p>
-          <p>description: {product.description}</p>
-          <p>price: {product.price}</p>
-          <p>available: {product.available === 0 ? "no" : "yes"}</p>
-
-          <button
-            onClick={() => {
-              return dispatch(deleteProduct(product));
-            }}
-          >
-            Delete
+          <p>ID: {product.id}</p>
+          <p>{product.name}</p>
+          <p>{product.description}</p>
+          <p>Price: {product.price}</p>
+          <p>Available: {product.available}</p>
+          <button onClick={() => dispatch(changeAvailable(product))}>
+            Change available
           </button>
-
-          <button
-            onClick={() => {
-              return dispatch(changeAvialablity(product));
-            }}
-          >
-            Change avialablity
+          <button onClick={() => dispatch(deleteProduct(product))}>
+            Delete product
           </button>
         </div>
       ))}
-    </section>
+    </>
   );
 }
